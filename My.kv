@@ -1,0 +1,300 @@
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+
+
+
+<Demo>:
+    MDBottomNavigation:
+        panel_color: get_color_from_hex("#DDF0E9")
+        text_color_active: get_color_from_hex("#000000")
+        MDBottomNavigationItem:
+            name: 'Home'
+            text: "Home"
+            icon: 'home'
+            FloatLayout:
+                Imageandbackground:
+                MDLabel:
+                    text: "Welcome your name"
+                    halign: 'center'
+                    size_hint_y: 1.92
+
+
+                RoundedButton:
+                    text: 'Check For nearest police station ---->'
+                    color: get_color_from_hex("#000000")
+                    pos_hint: {'center_x': 0.5, 'top': .65}
+                    size_hint: (.87, .13)
+                    on_press: root.NearestPoliceStation()
+
+                RoundedButton2:
+                    text: '<---- Check For nearest hospital'
+                    color: get_color_from_hex("#000000")
+                    pos_hint: {'center_x':0.5,'top':.50}
+                    size_hint: (.87,.13)
+                    on_press: root.NearestHospital()
+                RoundedButton3:
+                    text: 'Scan face & Alert nearest  ---->\nPolice station '
+                    color: get_color_from_hex("#000000")
+                    pos_hint: {'center_x':0.5,'top':.35}
+                    size_hint: (.87,.13)
+                    on_press: root.ScanFace()
+                RoundedButton4:
+                    text: 'Emergency Call'
+                    pos_hint: {'center_x':0.5,'top':.20}
+                    size_hint: (.87,.13)
+                    on_press: root.EmergencyCall()
+        MDBottomNavigationItem:
+            name: 'FR'
+            text: "Face Recognition"
+            icon: 'face-recognition'
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: dp(20)
+
+                MDCard:
+                    orientation: 'vertical'
+                    size_hint: None, None
+                    size: dp(200), dp(200)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    MDRaisedButton:
+                        text: "Choose from Gallery"
+                        size_hint: 0.8, 0.8
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        on_press: root.manager.current = 'FaceRecognitionScreenFound'
+
+                MDCard:
+                    orientation: 'vertical'
+                    size_hint: None, None
+                    size: dp(200), dp(200)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    MDRaisedButton:
+                        text: "Take a Photo"
+                        size_hint: 0.8, 0.8
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        on_press: root.manager.current = 'FaceRecoginitionScreenNotFound'
+        MDBottomNavigationItem:
+            name: 'Profile'
+            text: "Profile"
+            icon: 'login'
+            FloatLayout:
+                MDLabel:
+                    text: "Name Surname"
+                    pos_hint: {"x":0.10, "top": 1.4}
+                RoundedButton:
+                    text: 'Register'
+                    color: get_color_from_hex("#000000")
+                    on_press: root.Registration()
+                    pos_hint: {"x":0.70, "top": 0.7}
+                    size_hint: (.24, .08)
+                    on_press: root.manager.current = 'RegisterPage'
+
+
+                RoundedButton:
+                    text: 'Login'
+                    color: get_color_from_hex("#000000")
+                    on_press: root.Login()
+                    pos_hint: {"x":0.44, "top": 0.7}
+                    size_hint: (.24, .08)
+                    on_press: root.manager.current = 'LoginPage'
+
+
+
+                Button:
+                    on_press: root.HelpCenter()
+                    size_hint: (0.08, 0.08)
+                    pos_hint: {"x":0.85, "top": 0.5}
+                    background_color :0,0,0,0
+                Image:
+                    source: r'C:\Users\shubh\OneDrive\Documents\cpp image sources\icons8-forward-64.png'
+                    size_hint: (0.09, 0.09)
+                    pos_hint: {"x":0.85, "top": 0.5}
+                MDLabel:
+                    text: "Help Center"
+                    pos_hint: {"x":0.21, "top": 0.96}
+                Image:
+                    source: r'C:\Users\shubh\OneDrive\Documents\cpp image sources\icons8-help-30.png'
+                    size_hint: (0.09, 0.09)
+                    pos_hint: {"x":0.08, "top": 0.5}
+
+                Button:
+                    on_press: root.MessageCenter()
+                    size_hint: (0.08, 0.08)
+                    pos_hint: {"x":0.85, "top": 0.4}
+                    background_color :0,0,0,0
+                Image:
+                    source: r'C:\Users\shubh\OneDrive\Documents\cpp image sources\icons8-forward-64.png'
+                    size_hint: (0.09, 0.09)
+                    pos_hint: {"x":0.85, "top": 0.4}
+                Image:
+                    source: r'C:\Users\shubh\OneDrive\Documents\cpp image sources\icons8-doorbell-30.png'
+                    size_hint: (0.09, 0.09)
+                    pos_hint: {"x":0.08, "top": 0.4}
+                MDLabel:
+                    text: "Message Center"
+                    pos_hint: {"x":0.21, "top": 0.86}
+
+                Button:
+                    on_press: root.AboutUs()
+                    size_hint: (0.08, 0.08)
+                    pos_hint: {"x":0.85, "top": 0.3}
+                    background_color :0,0,0,0
+                Image:
+                    source: r'C:\Users\shubh\OneDrive\Documents\cpp image sources\icons8-forward-64.png'
+                    size_hint: (0.09, 0.09)
+                    pos_hint: {"x":0.85, "top": 0.3}
+                MDLabel:
+                    text: "About Us"
+                    pos_hint: {"x":0.21, "top": 0.76}
+                Image:
+                    source: r'C:\Users\shubh\OneDrive\Documents\cpp image sources\icons8-about-48.png'
+                    size_hint: (0.09, 0.09)
+                    pos_hint: {"x":0.08, "top": 0.3}
+
+                Button:
+                    on_press: root.Settings()
+                    size_hint: (0.08, 0.08)
+                    pos_hint: {"x":0.85, "top": 0.2}
+                    background_color :0,0,0,0
+                Image:
+                    source: r'C:\Users\shubh\OneDrive\Documents\cpp image sources\icons8-forward-64.png'
+                    size_hint: (0.09, 0.09)
+                    pos_hint: {"x":0.85, "top": 0.2}
+                MDLabel:
+                    text: "Settings"
+                    pos_hint: {"x":0.21, "top": 0.66}
+                Image:
+                    source: r'C:\Users\shubh\OneDrive\Documents\cpp image sources\icons8-settings-50.png'
+                    size_hint: (0.09, 0.09)
+                    pos_hint: {"x":0.08, "top": 0.2}    
+
+
+
+
+
+<LoginPage>:
+    name: 'LoginPage'
+    FloatLayout:
+        MDLabel:
+            text: "Welcome to Login Page"
+            pos_hint : {"x":0.25, "top":1.4}
+        Button:
+            text: "back"
+            size_hint: (0.2, 0.1)
+            pos_hint: {"x":0.7}
+            on_press: root.manager.current = 'Demo'
+
+<RegisterPage>:
+    name: 'RegisterPage'
+    FloatLayout:
+        MDLabel:
+            text: "Welcome to Registration Page"
+            pos_hint : {"x":0.17, "top":1.4}
+        Button:
+            text: "back"
+            size_hint: (0.2, 0.1)
+            pos_hint: {"x":0.7}
+            on_press: root.manager.current = 'Demo'
+
+<FaceRecognitionScreenNotFound>:
+    name: 'FaceRecognitionScreenFound'
+    FloatLayout:
+        MDLabel:
+            text: "Face Recognition"
+            halign: 'center'
+            size_hint: None, None
+        Button:
+            text: "Welcome to person not found page"
+            size_hint_y: 1.92
+            on_press: root.manager.current = 'Demo'
+
+<FaceRecognitionScreenFound>:
+    name: 'FaceRecoginitionScreenNotFound'
+    MDBottomNavigation:
+        panel_color: get_color_from_hex("#DDF0E9")
+        text_color_active: get_color_from_hex("#000000")
+        MDBottomNavigationItem:
+            name: 'Home'
+            text: "Home"
+            icon: 'home'
+            FloatLayout:
+                Imageandbackground:
+                MDLabel:
+                    text: "Welcome to person found page"
+                    halign: 'center'
+                    size_hint_y: 1.92
+                Button:
+                    text: "Welcome to person found page"
+                    size_hint_y: 1.92
+                    on_press: root.manager.current = 'Demo'
+
+
+
+
+
+<RoundedButton@Button>
+    background_color: (0,0,0,0)
+    background_normal:
+    canvas.before:
+        Color:
+            rgba: get_color_from_hex('81CBAA')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [20]
+
+<RoundedButton2@Button>
+    background_color: (0,0,0,0)
+    background_normal:
+    canvas.before:
+        Color:
+            rgba: get_color_from_hex('DDF0E9')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [20]
+
+<RoundedButton3@Button>
+    background_color: (0,0,0,0)
+    background_normal:
+    canvas.before:
+        Color:
+            rgba: get_color_from_hex('81CBAA')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [20]
+
+<RoundedButton4@Button>
+    background_color: (0,0,0,0)
+    background_normal:
+    canvas.before:
+        Color:
+            rgba: (1,0,0,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [20]
+
+<Imageandbackground@Button>
+    background_color: (0,0,0,0)
+    background_normal:
+    canvas.before:
+        Color:
+            rgba: get_color_from_hex('DDF0E9')
+        Ellipse:
+            pos: -25, 290
+            size: 350 , 190
+            angle_start: 0
+            angle_end: 360
+
+        Color:
+            rgb: 1, 1, 1
+        Ellipse:
+            pos: 100, 305
+            size: 100 , 100
+            source: 'Lionel-Messi1.jpg'
+            angle_start: 0
+            angle_end: 360
